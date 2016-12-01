@@ -115,14 +115,7 @@ assemblePage = function(pages, page, request, response) {
 }
 
 copyPage = function(sourcePage) {
-    var page = {};
-    page.name = sourcePage.name;
-    page.data = sourcePage.data;
-    page.theme = sourcePage.theme;
-    page.layout = sourcePage.layout;
-    page.redirect = sourcePage.redirect;
-    page.hidden = sourcePage.hidden;
-
+    var page = Object.assign({}, sourcePage);
     return page;
 }
 
