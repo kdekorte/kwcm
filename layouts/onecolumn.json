@@ -1,0 +1,13 @@
+{
+    "rows" : [
+        {
+            "columns" : [
+                {
+                    "id" : "theone",
+                    "name" : "cell",
+                    "style" : "onecolumn"
+                }
+            ]
+        }
+    ]
+}

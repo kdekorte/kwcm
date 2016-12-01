@@ -1,0 +1,7 @@
+{
+    "title" : "Article 07",
+    "summary" : "Random filler text",
+    "publishdate" : "2012-05-07T18:25:43.511Z",
+    "content" : "This is the first article with extra content",
+    "presentation" : "./presentation/article.html"
+}

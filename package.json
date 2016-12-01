@@ -1,0 +1,14 @@
+{
+  "name": "kwcm",
+  "description": "Kevin's Web Content Manager",
+  "license": "TBD",
+  "version": "0.0.1",
+  "dependencies": {
+    "connect": "^3.5.0",
+    "express-session": "^1.14.2",
+    "fly-template": "^0.1.3",
+    "http": "0.0.0",
+    "require-nocache": "^1.0.0"
+  },
+  "readme": "A basic CMS without the management part"
+}

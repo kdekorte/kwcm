@@ -1,0 +1,5 @@
+{
+    "presentation" : "./presentation/welcome.html",
+    "headline" : "Welcome to App.js",
+    "content" : "A basic CMS without the management part..."
+}

@@ -1,0 +1,4 @@
+{
+    "presentation" : "./presentation/basic.html",
+    "content" : "<div>Ads go here....j/k</div><div><img style='width:50%' src='/resources/images/app.png'></div>"
+}

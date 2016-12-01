@@ -1,0 +1,7 @@
+{
+    "title" : "Article 02",
+    "summary" : "This is the 2nd article",
+    "publishdate" : "2012-04-24T18:25:43.511Z",
+    "content" : "This is the second article with extra content",
+    "presentation" : "./presentation/article.html"
+}

@@ -1,0 +1,10 @@
+{
+    "query" : "./data/articles",
+    "header" : "<div class='articles'>",
+    "footer" : "</div>",
+    "itempresentation" : "./presentation/article_list.html",
+    "sortby" : "publishdate",
+    "sortorder" : "desc",
+    "detailpage" : "/app/article"
+
+}

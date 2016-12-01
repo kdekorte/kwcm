@@ -1,0 +1,88 @@
+{
+    "name": "root",
+    "theme": "default",
+    "redirect": "/app/home",
+    "children": [
+        {
+            "name": "home",
+            "layout": "./layouts/home.json",
+            "data": [
+                {
+                    "container": "welcome",
+                    "content": "./data/home/welcome.json"
+                },
+                {
+                    "container": "ads",
+                    "content": "./data/home/ads.json"
+                },
+                {
+                    "container": "bottom",
+                    "content": "./data/home/bottom.json"
+                },
+                {
+                    "container": "articles",
+                    "content": "./data/home/articles.json"
+                }
+            ],
+            "children": []
+        },
+        {
+            "name": "projects",
+            "theme": "mono",
+            "layout": "./layouts/onecolumn.json",
+            "data": [
+                {
+                    "container": "theone",
+                    "content": "./data/projects/projectintro.json"
+                }
+            ],
+            "children": [
+                {
+                    "name": "project1",
+                    "layout": "./layouts/onecolumn.json",
+                    "data": [
+                        {
+                            "container": "theone",
+                            "content": "./data/projects/project1.json"
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "project2",
+                    "layout": "./layouts/onecolumn.json",
+                    "data": [
+                        {
+                            "container": "theone",
+                            "content": "./data/projects/project2.json"
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "name": "project3",
+                    "layout": "./layouts/onecolumn.json",
+                    "data": [
+                        {
+                            "container": "theone",
+                            "content": "./data/projects/project3.json"
+                        }
+                    ],
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name" : "article",
+            "hidden" : true,
+            "layout": "./layouts/onecolumn.json",
+            "data":[
+                {
+                    "container" : "theone",
+                    "content" : "argument"
+                }
+            ],
+            "children" : []
+        }
+    ]
+}

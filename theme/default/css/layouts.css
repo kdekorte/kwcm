@@ -1,0 +1,41 @@
+.onecolumn {
+    min-height: 100px;
+    width: 100%;
+    margin: 5px 0;
+    border: 1px solid #7c7c7c;
+    border-radius: 5px;
+}
+
+.widecolumn, .narrowcolumn {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #7c7c7c;
+    border-radius: 5px;
+}
+
+.narrowcolumn {
+    margin-top: 5px;
+}
+
+@media all and (min-width: 600px) {
+
+    .onecolumn {
+        clear: both;
+    }
+
+    .widecolumn {
+        min-height: 400px;
+        float:left;
+        width: calc(67% - 7px);
+    }
+
+    .narrowcolumn {
+        min-height: 400px;
+        float:right;
+        width: calc(33% - 2px);
+        margin-right: -2px;
+        margin-top: 0;
+    }
+
+
+}

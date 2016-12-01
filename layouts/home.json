@@ -1,0 +1,41 @@
+{
+    "rows" : [
+        {
+            "columns" : [
+                {
+                    "id" : "welcome",
+                    "name" : "cell",
+                    "style" : "onecolumn"
+                }
+            ]
+        },
+        {
+            "columns" : [
+                {
+                    "id" : "articles",
+                    "name" : "cell",
+                    "style" : "widecolumn"
+                },
+                {
+                    "id" : "ads",
+                    "name" : "cell",
+                    "style" : "narrowcolumn"
+                },
+                {
+                    "id" : "clear1",
+                    "name" : "clear",
+                    "style" : "themeClear"
+                }
+            ]
+        },
+        {
+            "columns" : [
+                {
+                    "id" : "bottom",
+                    "name" : "cell",
+                    "style" : "onecolumn"
+                }
+            ]
+        }                
+    ]
+}

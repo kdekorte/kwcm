@@ -1,0 +1,18 @@
+.output h1, .output h2, .output h3, .output h4 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.output {
+   padding: 5px;
+   margin: 0;
+}
+
+.output div {
+    margin-bottom: 10px;
+}
+
+.output h3 a {
+    text-decoration: none;
+}
