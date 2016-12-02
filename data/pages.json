@@ -16,6 +16,10 @@
                     "content": "./data/home/ads.json"
                 },
                 {
+                    "container": "ads",
+                    "content": "./data/home/weather.json"
+                },
+                {
                     "container": "bottom",
                     "content": "./data/home/bottom.json"
                 },

@@ -72,7 +72,22 @@ app.use('/resources/', function(request, response, next) {
 });
 
 app.use('/app', function(request, response, next) {
-    util.assemblePage(pages, util.findPage(pages, request.url), request, response);
+
+    var page = util.findPage(pages, request.url);
+    if (page.redirect != null) {
+        response.writeHead(301, { Location: page.redirect});
+        response.end();
+        return;
+    }
+    util.assemblePage(pages, page, request, response).then(function(content) {
+        var theme = require("./theme/" + page.theme + "/theme");
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(theme.getHeader(pages));
+        response.write(content);
+        response.write(theme.getFooter());
+        response.end();
+
+    });
 });
 
 app.use("/api/render", function(request, response, next) {

@@ -1,5 +1,7 @@
 var fs = require("fs");
 var reload = require("require-nocache")(module);
+var async = require("asyncawait/async");
+var await = require("asyncawait/await");
 
 renderContent = function(content) {
 
@@ -54,7 +56,7 @@ renderArgument = function(url) {
     return "";
 }
 
-renderItem = function(data) {
+renderItem = async(function(data) {
 
     var item = null;
     try {
@@ -71,48 +73,45 @@ renderItem = function(data) {
         return renderQuery(item);
     }
 
-}
-
-
-assemblePage = function(pages, page, request, response) {
-    if (page.redirect != null) {
-        response.writeHead(301, { Location: page.redirect});
-        response.end();
-        return;
+    if (item.plugin != null) {
+        var plugin = reload("./plugins/" + item.plugin + "/plugin");
+        return await(plugin.execute());
     }
 
-    var theme = require("./theme/" + page.theme + "/theme");
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write(theme.getHeader(pages));
+});
+
+
+assemblePage = async(function(pages, page, request, response) {
+ 
+    var result = "";
 
     if (page.layout != null) {
         var layout = reload(page.layout);
         layout.rows.forEach(function(row) {
             row.columns.forEach(function(column){
-                response.write("<div id='" + column.id + "' name='" + column.name + "' class='" + column.style + "'>");
+                result += "<div id='" + column.id + "' name='" + column.name + "' class='" + column.style + "'>";
                 
                 page.data.forEach(function(data){
                     if (data.container == column.id) {
                         if (data.content == "argument") {
-                            response.write(renderArgument(request.url));
+                            result += renderArgument(request.url);
                         } else {
-                            response.write(renderItem(data.content));
+                            result += await(renderItem(data.content));
                         }
                     }
                 });
 
-                response.write("</div>");
+                result += "</div>";
             }); 
 
         });
  
     } else {
-        response.write("Missing layout");
+        result = "Missing layout";
     }
-    response.write(theme.getFooter());
-    response.end();
+    return result;
 
-}
+});
 
 copyPage = function(sourcePage) {
     var page = Object.assign({}, sourcePage);
