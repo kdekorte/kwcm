@@ -1,0 +1,18 @@
+{
+    "rows" : [
+        {
+            "columns" : [
+                {
+                    "id" : "left",
+                    "name" : "cell",
+                    "style" : "narrowcolumn"
+                },
+                {
+                    "id" : "right",
+                    "name" : "cell",
+                    "style" : "widecolumn"
+                }                
+            ]
+        }
+    ]
+}

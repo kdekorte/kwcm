@@ -19,19 +19,34 @@
                     "container": "ads",
                     "content": "./data/home/weather.json",
                     "cache" : {
-                        "id" : "weather",
+                        "id" : "weather_default",
                         "type" : "global",
                         "duration" : 60
                     }
                 },
+                {
+                    "container": "ads",
+                    "content": "./data/home/weather_fm.json",
+                    "cache" : {
+                        "id" : "weather_fm",
+                        "type" : "global",
+                        "duration" : 60
+                    }
+                },
+                
                 {
                     "container": "bottom",
                     "content": "./data/home/bottom.json"
                 },
                 {
                     "container": "articles",
-                    "content": "./data/home/articles.json"
-                }
+                    "content": "./data/home/articles.json",
+                    "cache" : {
+                        "id" : "articles",
+                        "type" : "session",
+                        "duration" : 60
+                    }
+               }
             ],
             "children": []
         },
@@ -92,6 +107,48 @@
                 }
             ],
             "children" : []
-        }
+        },
+        {
+            "name" : "docs",
+            "layout": "./layouts/twocolumn.json",
+            "data":[
+                {
+                    "container" : "left",
+                    "content" : "./data/docs/toc.json",
+                    "cache" : {
+                        "id" : "chapters",
+                        "type" : "global",
+                        "duration" : 60
+                    }
+                },
+                {
+                    "container" : "right",
+                    "content" : "./data/docs/landing.json"
+                }
+            ],
+            "children" : [
+                        {
+                    "name" : "chapter",
+                    "hidden" : true,
+                    "layout": "./layouts/twocolumn.json",
+                    "data":[
+                        {
+                            "container" : "left",
+                            "content" : "./data/docs/toc.json",
+                            "cache" : {
+                                "id" : "chapters",
+                                "type" : "global",
+                                "duration" : 60
+                            }
+                        },
+                        {
+                            "container" : "right",
+                            "content" : "argument"
+                        }
+                    ],
+                    "children" : []
+                }
+            ]
+        }        
     ]
 }
