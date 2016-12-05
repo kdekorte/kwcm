@@ -1,5 +1,15 @@
 var fs = require("fs");
 
+visibleChildren = function(page) {
+    var count = 0;
+    page.children.forEach(function(child) {
+        if (child.hidden == undefined && !child.hidden) {
+            count++;
+        }
+    });
+    return count;
+}
+
 getMenubar = function(pages) {
 
     var menus = "";
@@ -8,7 +18,7 @@ getMenubar = function(pages) {
         menus += "<div class='menubar_child noselect'>";
         pages.children.forEach(function(page) {
             if (page.hidden == undefined && !page.hidden) {
-                if (page.children.length == 0) {
+                if (visibleChildren(page) == 0) {
                     menus += "<div class='themeLeft category' onclick='window.location=\"/app/" + page.name + "\";'>";
                     menus += "<a href='/app/" + page.name + "'>" + page.name + "</a>"
                     menus += "</div>";
