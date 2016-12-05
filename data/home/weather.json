@@ -1,4 +1,3 @@
 {
-    "plugin" : "weather",
-    "cacheDuration" : 600
+    "plugin" : "weather"
 }
