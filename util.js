@@ -58,7 +58,7 @@ renderArgument = function(url) {
     return "";
 }
 
-renderItem = async(function(data) {
+renderItem = async(function(request,response, data) {
 
     var item = null;
     try {
@@ -77,7 +77,8 @@ renderItem = async(function(data) {
 
     if (item.plugin != null) {
         var plugin = reload("./plugins/" + item.plugin + "/plugin");
-        return await(plugin.execute());
+        request.plugin_argument = item.argument;
+        return await(plugin.execute(request, response));
     }
 
 });
@@ -101,16 +102,19 @@ assemblePage = async(function(pages, page, request, response) {
                             var output = "";
                             if (data.cache != null) {
                                 var cacheKey = data.cache.id + "_" + data.cache.type;
+                                if (data.cache.type == "session") {
+                                    cacheKey += "_" + request.session.id;
+                                }
                                 if (cache.has(cacheKey)) {
                                     output = cache.get(cacheKey);
-                                    console.log("fetched " + cacheKey + " from cache");
+                                    //console.log("fetched " + cacheKey + " from cache");
                                 } else {
-                                    output = await(renderItem(data.content));
+                                    output = await(renderItem(request, response, data.content));
                                     cache.set(cacheKey, output, data.cache.duration * 1000);
-                                    console.log("set " + cacheKey);
+                                    //console.log("set " + cacheKey);
                                 }
                             } else {
-                                output = await(renderItem(data.content));
+                                output = await(renderItem(request, response, data.content));
                             }
                             result += output;
                         }
