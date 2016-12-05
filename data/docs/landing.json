@@ -1,0 +1,5 @@
+{
+    "presentation" : "./presentation/welcome.html",
+    "headline" : "Documentation",
+    "content" : "<div>Kevin's Web Content Manager (KWCM) started as a initial project to learn more about nodejs. As more time was spent learning I felt that this project might be able to turn into something. So as I started working on items I felt it might be good to document how this project works to ensure that no knowledge was lost during the development.</div>"
+}

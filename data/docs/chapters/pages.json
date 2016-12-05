@@ -1,0 +1,6 @@
+{
+    "title" : "Pages",
+    "publishdate" : "2012-04-23T18:25:43.511Z",
+    "content" : "The hierarchy of the site is driven by the /data/pages.json file",
+    "presentation" : "./presentation/article.html"
+}
