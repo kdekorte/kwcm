@@ -33,7 +33,7 @@ var pages = reloadPages();
 var app = connect();
 app.use(compression());
 app.use(session({
-  secret: 'app',
+  secret: 'kwcm',
   resave: false,
   saveUninitialized: true,
   cookie: {}
