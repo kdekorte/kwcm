@@ -40,7 +40,8 @@ app.use(session({
 }));
 
 app.use('/theme/', function(request, response, next) {
-    var filename = require('path').join(__dirname, "/theme" + request.url);
+    var filename = require('path').join(__dirname, "/theme" + request.url.replace("..",""));
+    filename = filename.replace("..", "");
     var errorListener = this.errorListener;
     require('fs').readFile(filename, function(err, file) {
         if(err) {
@@ -56,7 +57,7 @@ app.use('/theme/', function(request, response, next) {
 });
 
 app.use('/resources/', function(request, response, next) {
-    var filename = require('path').join(__dirname, "/resources" + request.url);
+    var filename = require('path').join(__dirname, "/resources" + request.url.replace("..",""));
     var errorListener = this.errorListener;
     require('fs').readFile(filename, function(err, file) {
         if(err) {

@@ -2,6 +2,7 @@ var fs = require("fs");
 var reload = require("require-nocache")(module);
 var async = require("asyncawait/async");
 var await = require("asyncawait/await");
+var URL = require("url");
 var LRU = require("lru-cache");
 var options = {max:500};
 var cache = LRU(options);
@@ -46,15 +47,13 @@ renderQuery = function(queryspec) {
 
 renderArgument = function(url) {
 
-    var query = url.replace(/(.*)\?/,"");
-    params = query.split("=");
-    if (params[0] == "data") {
-        var content = reload(params[1]);
+    var urlObject = URL.parse(url, true, true);
+    if (urlObject.query != null && urlObject.query.data != null) {
+        var content = reload(urlObject.query.data);
         var presentation = fs.readFileSync(content.presentation).toString();
         var render = require("fly-template")(presentation);
         return render({at: content});
-
-    }
+   }
 
     return "";
 }
