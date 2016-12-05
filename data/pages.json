@@ -17,7 +17,12 @@
                 },
                 {
                     "container": "ads",
-                    "content": "./data/home/weather.json"
+                    "content": "./data/home/weather.json",
+                    "cache" : {
+                        "id" : "weather",
+                        "type" : "global",
+                        "duration" : 60
+                    }
                 },
                 {
                     "container": "bottom",

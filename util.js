@@ -2,6 +2,9 @@ var fs = require("fs");
 var reload = require("require-nocache")(module);
 var async = require("asyncawait/async");
 var await = require("asyncawait/await");
+var LRU = require("lru-cache");
+var options = {max:500};
+var cache = LRU(options);
 
 renderContent = function(content) {
 
@@ -96,7 +99,21 @@ assemblePage = async(function(pages, page, request, response) {
                         if (data.content == "argument") {
                             result += renderArgument(request.url);
                         } else {
-                            result += await(renderItem(data.content));
+                            var output = "";
+                            if (data.cache != null) {
+                                var cacheKey = data.cache.id + "_" + data.cache.type;
+                                if (cache.has(cacheKey)) {
+                                    output = cache.get(cacheKey);
+                                    console.log("fetched " + cacheKey + " from cache");
+                                } else {
+                                    output = await(renderItem(data.content));
+                                    cache.set(cacheKey, output, data.cache.duration * 1000);
+                                    console.log("set " + cacheKey);
+                                }
+                            } else {
+                                output = await(renderItem(data.content));
+                            }
+                            result += output;
                         }
                     }
                 });
