@@ -1,0 +1,6 @@
+{
+    "title" : "2. Layouts",
+    "publishdate" : "2012-04-23T18:25:43.511Z",
+    "content" : "Each layout is a collection of rows and columns that defines a location for target content to be placed. A layout can have the following attributes defined for it: <br/><br/><table style='width:100%'><tr><td style='width:25%;font-weight:700'>Attribute Name</td><td style='width:75%;font-weight:700'>Attribute Value</td></tr><tr><td>rows</td><td>Array of vertical blocks that can contain column objects </td></tr><tr><td>columns</td><td>Array of horizontal blocks that contains an object with the following properties:</td></tr></table><br/><table style='width:100%'><tr><td style='width:25%;font-weight:700'>Name</td><td style='width:75%;font-weight:700'>Description</td></tr><tr><td>id</td><td>Name of a block that can contain content</td></tr><tr><td>name</td><td>DOM name of the generated object</td></tr><tr><td>style</td><td>CSS style that is applied to the block</td></tr></table>",
+    "presentation" : "./presentation/article.html"
+}

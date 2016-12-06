@@ -1,6 +1,6 @@
 {
-    "title" : "Pages",
+    "title" : "1. Pages",
     "publishdate" : "2012-04-23T18:25:43.511Z",
-    "content" : "The hierarchy of the site is driven by the /data/pages.json file",
+    "content" : "The hierarchy of the site is driven by the /data/pages.json file. Each page can have the following attributes defined for it: <br/><table style='width:100%'><tr><td style='width:25%;font-weight:700'>Attribute Name</td><td style='width:75%;font-weight:700'>Attribute Value</td></tr><tr><td>name</td><td>Value used to construct the url to the page</td></tr><tr><td>theme</td><td>Name of the theme to use for this page, inherits from parent</td></tr><tr><td>redirect</td><td>Target to display instead of this page</td></tr><tr><td>children</td><td>Array of child page declarations</td></tr><tr><td>layout</td><td>layout to use for this page (refer to the <a href='/app/docs/chapter?data=./data/docs/chapters/layouts.json'>Layouts</a> documentation</td></tr><tr><td>data</td><td>array of objects that assign content to containers.</td></tr></table>",
     "presentation" : "./presentation/article.html"
 }

@@ -3,6 +3,7 @@ var reload = require("require-nocache")(module);
 var async = require("asyncawait/async");
 var await = require("asyncawait/await");
 var URL = require("url");
+var security = require("./modules/security");
 var LRU = require("lru-cache");
 var options = {max:500};
 var cache = LRU(options);
@@ -23,6 +24,15 @@ renderQuery = function(queryspec) {
 
     var files = fs.readdirSync(queryspec.query);
     files.sort(function(a,b){
+        if (queryspec.sortby == "title") {
+            aj = reload(queryspec.query + "/" + a);
+            bj = reload(queryspec.query + "/" + b);
+            if (queryspec.sortorder == "desc") {
+                return aj.title < bj.title;
+            } else {
+                return aj.title > bj.title;
+            }
+        }
         if (queryspec.sortby == "publishdate") {
             aj = reload(queryspec.query + "/" + a);
             bj = reload(queryspec.query + "/" + b);

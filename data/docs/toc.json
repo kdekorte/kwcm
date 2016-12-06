@@ -1,10 +1,10 @@
 {
     "query" : "./data/docs/chapters",
-    "header" : "<div style='padding:5px'><div>Table of Contents</div><div class='chapters'>",
+    "header" : "<div style='padding:5px'><div style='width:100%;font-weight:900;text-align:center'>Table of Contents</div><div class='chapters'>",
     "footer" : "</div></div>",
     "itempresentation" : "./presentation/chapter_list.html",
-    "sortby" : "publishdate",
-    "sortorder" : "desc",
+    "sortby" : "title",
+    "sortorder" : "asc",
     "detailpage" : "/app/docs/chapter"
 
 }

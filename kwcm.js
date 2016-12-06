@@ -7,6 +7,7 @@ var reload = require("require-nocache")(module);
 
 var theme = require("./theme/default/theme");
 var util = require("./util");
+var security = require("./modules/security");
 
 mergePageProperties = function(parent) {
     for (var i = 0; i < parent.children.length; i++) {
