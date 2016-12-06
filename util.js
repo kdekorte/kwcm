@@ -77,8 +77,10 @@ renderItem = async(function(request,response, data) {
 
     if (item.plugin != null) {
         var plugin = reload("./plugins/" + item.plugin + "/plugin");
-        request.plugin_argument = item.argument;
-        return await(plugin.execute(request, response));
+        // pass the cache thru, so plugins can use it if needed
+        var arguments = Object.assign({cache: cache}, item.arguments);
+
+        return await(plugin.execute(request, response, arguments));
     }
 
 });

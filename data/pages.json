@@ -17,15 +17,6 @@
                 },
                 {
                     "container": "ads",
-                    "content": "./data/home/weather.json",
-                    "cache" : {
-                        "id" : "weather_default",
-                        "type" : "global",
-                        "duration" : 60
-                    }
-                },
-                {
-                    "container": "ads",
                     "content": "./data/home/weather_fm.json",
                     "cache" : {
                         "id" : "weather_fm",
@@ -52,7 +43,6 @@
         },
         {
             "name": "projects",
-            "theme": "mono",
             "layout": "./layouts/onecolumn.json",
             "data": [
                 {
@@ -149,6 +139,17 @@
                     "children" : []
                 }
             ]
+        },
+        {
+            "name" : "cache",
+            "layout": "./layouts/onecolumn.json",
+            "data":[
+                {
+                    "container" : "theone",
+                    "content" : "./data/cache.json"
+                }
+            ],
+            "children" : []
         }        
     ]
 }

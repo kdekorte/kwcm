@@ -1,4 +1,6 @@
 {
     "plugin" : "weather",
-    "argument": "Fort Morgan, CO"
+    "arguments": {
+        "location" : "Fort Morgan, CO"
+    }
 }
